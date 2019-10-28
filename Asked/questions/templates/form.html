@@ -1,0 +1,10 @@
+{%extends 'base.html'%}
+{%block body%}
+    <div class="container w-50 my-3">
+        <form action="" method="post">
+            {%csrf_token%}
+            <textarea class="form-control" name="content" id="" rows="5" placeholder="질문을 남겨주세요."></textarea>
+            <input class="btn btn-primary my-2" type="submit">
+        </form>
+    </div>
+{%endblock%}

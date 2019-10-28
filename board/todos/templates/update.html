@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <form action="" method="post">
+        {% csrf_token %}
+        작성자 : <input type="text" name="author" value="{{todo.author}}">
+        제목 : <input type="text" name="title" value="{{todo.title}}">
+        내용 : <input type="text" name="content" valud="{{todo.content}}">
+        마감일 : <input type="date" name="due-date" value="{{todo.due_date|date:'Y-m-d'}}">
+        <input type="submit" value = "저장">
+    </form>
+{% endblock %}

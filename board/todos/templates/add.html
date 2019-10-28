@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <form action="" method="post">
+        {% csrf_token %}
+        작성자 : <input type="text" name="author">
+        제목 : <input type="text" name="title">
+        내용 : <input type="text" name="content">
+        마감일 : <input type="date" name="due-date">
+        <input type="submit" value = "저장">
+    </form>
+{% endblock %}

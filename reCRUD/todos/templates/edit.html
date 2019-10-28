@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<form action="/todos/{{todo.id}}/update/"> <!--페이지를 넘겨주는 action-->
+    <input type="text" name="title" value="{{todo.title}}">
+    <input type="date" name="duedate" value="{{todo.due_date|date:'Y-m-d'}}">
+    <input type="submit">
+</form>
+{% endblock %}

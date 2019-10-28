@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%block body%}
+    <div class="container">
+        <div class="jumbotron">
+            <p class="lead">{{question.content}}</p>
+            <hr class="my-4">
+            <form action="{%url 'questions:answer_create' question.id%}" method='post'>
+                {%csrf_token%}
+                <input class="form-control" type="text" name="content">
+                <button class="btn btn-primary my-2" type="submit">댓글작성</button>
+            </form>
+
+            {%if question.answer_set.all%}
+                {%for answer in question.answer_set.all%}
+                    <div class="alert alert-primary" role="alert">
+                        <h5>{{answer.content}}</h5>
+                        <a href="{%url 'questions:answer_delete' question.id answer.id%}" class="btn btn-danger">삭제</a>
+                    </div>
+                {%endfor%}
+            {%else%}
+                    <div class="alert alert-danger" role="alert">
+                        댓글이 없습니다.
+                    </div>
+            {%endif%}
+        </div>
+    </div>
+{%endblock%}

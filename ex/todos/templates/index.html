@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+    <h1>HI</h1>
+    <a href="{% url 'todos:create' %}">추가</a>
+    {% for todo in todos %}
+        <h5>{{todo.title}} - {{todo.due_date}}</h5>
+        <a href="{% url 'todos:delete' todo.id %}">삭제</a>
+        <a href="{% url 'todos:update' todo.id %}">수정</a>
+    {% endfor %}
+    
+{% endblock %}

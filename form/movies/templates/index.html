@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h1>index</h1>
+  {% for movie in movies %}
+    <a href="{% url 'movies:detail' movie.id %}">{{movie.title}}</a>
+  {% endfor %}
+{% endblock %}

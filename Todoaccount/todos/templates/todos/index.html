@@ -1,0 +1,8 @@
+{%extends 'base.html'%}
+{%block body%}
+    {%for todo in todos %}
+        <div class="alert alert-info d-flex justify-content-between" role="alert">
+            <span>{{todo.due_date}}: {{todo.content}}</span><a href="{%url 'todos:delete' todo.id%}" class='btn btn-danger'>완료</a>
+        </div>
+    {%endfor%}
+{%endblock%}
